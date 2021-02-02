@@ -7,14 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Platformus.Core.Frontend" Version="2.0.0-alpha5" />
-    <PackageReference Include="Platformus.Core.Data.EntityFramework.Sqlite" Version="2.0.0-alpha5" />
     <PackageReference Include="Platformus.WebApplication" Version="2.0.0-alpha5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MyApp.Backend\MyApp.Backend.csproj" />
     <ProjectReference Include="..\MyApp.Data.EntityFramework.Sqlite\MyApp.Data.EntityFramework.Sqlite.csproj" />
+    <ProjectReference Include="..\MyApp.Frontend\MyApp.Frontend.csproj" />
   </ItemGroup>
 
 </Project>
