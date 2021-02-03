@@ -21,7 +21,7 @@ namespace MyApp.Frontend.Controllers
     {
       return (await this.Storage.GetRepository<int, Data.Entities.Product, ProductFilter>().GetAllAsync(
         filter, sorting, offset, limit, InclusionParser<Data.Entities.Product>.Parse(fields)
-      )).Select(p => new Product(this.HttpContext, p));
+      )).Select(p => new Product(p));
     }
   }
 }

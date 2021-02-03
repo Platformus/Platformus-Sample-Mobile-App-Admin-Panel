@@ -3,7 +3,6 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
@@ -18,7 +17,7 @@ namespace MyApp.Backend.ViewModels.Categories
 {
   public class IndexViewModelFactory : ViewModelFactoryBase
   {
-    public async Task<IndexViewModel> CreateAsync(HttpContext httpContext, CategoryFilter filter, IEnumerable<Category> categories, string orderBy, int skip, int take, int total)
+    public IndexViewModel Create(HttpContext httpContext, CategoryFilter filter, IEnumerable<Category> categories, string orderBy, int skip, int take, int total)
     {
       IStringLocalizer<IndexViewModelFactory> localizer = httpContext.RequestServices.GetService<IStringLocalizer<IndexViewModelFactory>>();
 
@@ -27,11 +26,11 @@ namespace MyApp.Backend.ViewModels.Categories
         Grid = new GridViewModelFactory().Create(
           httpContext, "Name.Value.Contains", orderBy, skip, take, total,
           new[] {
-            new GridColumnViewModelFactory().Create(localizer["Name"], await httpContext.CreateLocalizedOrderBy("Name")),
+            new GridColumnViewModelFactory().Create(localizer["Name"], httpContext.CreateLocalizedOrderBy("Name")),
             new GridColumnViewModelFactory().Create(localizer["Position"], "Position"),
             new GridColumnViewModelFactory().CreateEmpty()
           },
-          categories.Select(c => new CategoryViewModelFactory().Create(httpContext, c)),
+          categories.Select(c => new CategoryViewModelFactory().Create(c)),
           "_Category"
         )
       };

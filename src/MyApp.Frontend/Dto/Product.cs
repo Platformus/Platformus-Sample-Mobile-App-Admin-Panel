@@ -1,7 +1,6 @@
 ﻿// Copyright © 2021 Dmitry Sikorsky. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using Microsoft.AspNetCore.Http;
 using Platformus;
 
 namespace MyApp.Frontend.Dto
@@ -16,12 +15,12 @@ namespace MyApp.Frontend.Dto
 
     public Product() { }
 
-    public Product(HttpContext httpContext, Data.Entities.Product _product)
+    public Product(Data.Entities.Product _product)
     {
       this.Id = _product.Id;
-      this.Category = _product.Category == null ? null : new Category(httpContext, _product.Category);
-      this.Name = _product.Name?.GetLocalizationValue(httpContext);
-      this.Description = _product.Description?.GetLocalizationValue(httpContext);
+      this.Category = _product.Category == null ? null : new Category(_product.Category);
+      this.Name = _product.Name?.GetLocalizationValue();
+      this.Description = _product.Description?.GetLocalizationValue();
       this.Price = _product.Price;
     }
   }
