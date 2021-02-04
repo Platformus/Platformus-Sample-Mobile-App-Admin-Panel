@@ -42,7 +42,7 @@ namespace MyApp.Backend.Controllers
     [ImportModelStateFromTempData]
     public async Task<IActionResult> CreateOrEditAsync(int? id)
     {
-      return this.View(await new CreateOrEditViewModelFactory().CreateAsync(
+      return this.View(new CreateOrEditViewModelFactory().Create(
         this.HttpContext, id == null ? null : await this.Repository.GetByIdAsync(
           (int)id,
           new Inclusion<Category>(c => c.Name.Localizations)

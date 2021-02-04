@@ -11,6 +11,14 @@ namespace MyApp.Data.EntityFramework.Sqlite
   {
     public void RegisterEntities(ModelBuilder modelBuilder)
     {
+      modelBuilder.Entity<RefreshToken>(etb =>
+        {
+          etb.HasKey(e => e.Id);
+          etb.Property(e => e.Id).IsRequired().HasMaxLength(64);
+          etb.ToTable("RefreshTokens");
+        }
+      );
+
       modelBuilder.Entity<Category>(etb =>
         {
           etb.HasKey(e => e.Id);

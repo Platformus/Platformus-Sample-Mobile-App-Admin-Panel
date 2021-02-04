@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyApp;
 using Platformus.WebApplication.Extensions;
 
 namespace WebApplication
@@ -29,6 +30,12 @@ namespace WebApplication
       services.Configure<StorageContextOptions>(options =>
         {
           options.ConnectionString = this.configuration.GetConnectionString("Default");
+        }
+      );
+
+      services.Configure<JwtOptions>(options =>
+        {
+          options.Secret = this.configuration["Jwt:Secret"];
         }
       );
 
