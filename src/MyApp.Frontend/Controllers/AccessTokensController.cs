@@ -36,7 +36,7 @@ namespace MyApp.Frontend.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult<string>> GetAsync([FromBody]AccessTokenRequest accessTokenRequest)
+    public async Task<ActionResult<string>> PostAsync([FromBody]AccessTokenRequest accessTokenRequest)
     {
       if (!string.IsNullOrEmpty(accessTokenRequest.Username) && !string.IsNullOrEmpty(accessTokenRequest.Password))
         return await this.GetAccessTokenByUsernameAndPasswordAsync(accessTokenRequest.Username, accessTokenRequest.Password);

@@ -11,7 +11,7 @@ namespace MyApp.Frontend.Actions
 {
   public class AddAuthenticationAction : IConfigureServicesAction
   {
-    public int Priority => 1000;
+    public int Priority => 1001;
 
     public void Execute(IServiceCollection services, IServiceProvider serviceProvider)
     {

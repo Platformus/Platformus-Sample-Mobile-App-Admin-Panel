@@ -6,7 +6,7 @@ using ExtCore.Mvc.Infrastructure.Actions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 
-namespace WebApplication
+namespace WebApplication.Actions
 {
   public class UseEndpointsAction : IUseEndpointsAction
   {
