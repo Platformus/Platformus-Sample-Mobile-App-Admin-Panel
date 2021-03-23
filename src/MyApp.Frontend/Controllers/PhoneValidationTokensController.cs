@@ -11,7 +11,7 @@ using Platformus.Core.Filters;
 namespace MyApp.Frontend.Controllers
 {
   [Route("{culture}/v1/phone-validation-tokens")]
-  public class PhoneValidationTokensController : ControllerBase
+  public class PhoneValidationTokensController : Platformus.Core.Frontend.Controllers.ControllerBase
   {
     private IRepository<Guid, Data.Entities.PhoneValidationToken, PhoneValidationTokenFilter> PhoneValidationTokenRepository
     {

@@ -11,6 +11,15 @@ namespace MyApp.Data.EntityFramework.Sqlite
   {
     public void RegisterEntities(ModelBuilder modelBuilder)
     {
+      modelBuilder.Entity<PhoneValidationToken>(etb =>
+        {
+          etb.HasKey(e => e.Id);
+          etb.Property(e => e.Id).ValueGeneratedOnAdd();
+          etb.Property(e => e.Phone).IsRequired().HasMaxLength(16);
+          etb.ToTable("PhoneValidationTokens");
+        }
+      );
+
       modelBuilder.Entity<RefreshToken>(etb =>
         {
           etb.HasKey(e => e.Id);
