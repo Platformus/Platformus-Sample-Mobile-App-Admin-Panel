@@ -22,9 +22,13 @@ POST: /en/v1/access-tokens
 3. Get categories or products (do not forget to put JWT from the step 2 in the request headers).
 
 GET: /en/v1/categories?fields=name.localizations
+
 GET: /en/v1/categories?name.value.contains=izza&fields=name.localizations
+
 GET: /en/v1/products?fields=name.localizations
+
 GET: /en/v1/products?fields=name.localizations,category.name.localizations
+
 GET: /en/v1/products?category.name.value.contains=izza&fields=name.localizations,category.name.localizations
 
 You can get rid of the culture code in the URL in the configurations (navigate to '/backend').
