@@ -40,12 +40,21 @@ namespace WebApplication
       );
 
       services.AddPlatformus(this.extensionsPath);
+      services.AddSwaggerGen();
     }
 
     public void Configure(IApplicationBuilder applicationBuilder, IWebHostEnvironment webHostEnvironment)
     {
       if (webHostEnvironment.IsDevelopment())
+      {
         applicationBuilder.UseDeveloperExceptionPage();
+        applicationBuilder.UseSwagger();
+        applicationBuilder.UseSwaggerUI(o =>
+          {
+            o.SwaggerEndpoint("/swagger/v1/swagger.json", "MyApp API V1");
+          }
+        );
+      }
 
       applicationBuilder.UsePlatformus();
     }

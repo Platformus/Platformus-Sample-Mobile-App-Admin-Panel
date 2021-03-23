@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Platformus.Core.Backend" Version="2.0.0-alpha6" />
+    <PackageReference Include="Platformus.Core.Backend" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

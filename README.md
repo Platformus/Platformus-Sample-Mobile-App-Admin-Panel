@@ -1,11 +1,33 @@
-# Platformus 2.0.0 Sample Mobile App Admin Panel
+# Platformus 2.0.0 Sample Personal Website
 
 [![Join the chat at https://gitter.im/Platformus/Platformus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Platformus/Platformus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Introduction
 
-[Platformus](https://github.com/Platformus/Platformus) is free, open source and cross-platform developer-friendly CMS
-based on ASP.NET Core and [ExtCore framework](https://github.com/ExtCore/ExtCore). Join our team!
+[Platformus](https://github.com/Platformus/Platformus) is free, open source, and cross-platform developer-friendly CMS
+based on ASP.NET Core, [ExtCore framework](https://github.com/ExtCore/ExtCore),
+and [Magicalizer](https://github.com/Magicalizer/Magicalizer).
+
+### How To Try
+
+1. Build and run the web application.
+2. Get access token for default user.
+
+POST: /en/v1/access-tokens
+
+```
+{"username": "admin@platformus.net", "password": "admin"}
+```
+
+3. Get categories or products (do not forget to put JWT from the step 2 in the request headers).
+
+GET: /en/v1/categories?fields=name.localizations
+GET: /en/v1/categories?name.value.contains=izza&fields=name.localizations
+GET: /en/v1/products?fields=name.localizations
+GET: /en/v1/products?fields=name.localizations,category.name.localizations
+GET: /en/v1/products?category.name.value.contains=izza&fields=name.localizations,category.name.localizations
+
+You can get rid of the culture code in the URL in the configurations (navigate to '/backend').
 
 ## Links
 
