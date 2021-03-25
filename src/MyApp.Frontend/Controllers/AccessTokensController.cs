@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright © 2021 Dmitry Sikorsky. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Magicalizer.Data.Repositories.Abstractions;
@@ -13,6 +16,7 @@ using Platformus.Core.Services.Abstractions;
 namespace MyApp.Frontend.Controllers
 {
   [Route("{culture}/v1/access-tokens")]
+  [ApiController]
   public class AccessTokensController : Platformus.Core.Frontend.Controllers.ControllerBase
   {
     private IUserManager userManager;

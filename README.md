@@ -1,4 +1,4 @@
-# Platformus 2.0.0 Sample Personal Website
+# Platformus 2.0.0 Sample Mobile App Admin Panel
 
 [![Join the chat at https://gitter.im/Platformus/Platformus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Platformus/Platformus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -7,6 +7,9 @@
 [Platformus](https://github.com/Platformus/Platformus) is free, open source, and cross-platform developer-friendly CMS
 based on ASP.NET Core, [ExtCore framework](https://github.com/ExtCore/ExtCore),
 and [Magicalizer](https://github.com/Magicalizer/Magicalizer).
+
+This project can be used as a base for creating admin panels for mobile apps. It contains backend UI (categories and products sample),
+users, roles, permissions, access/refresh tokens (JWT), configurations, API with complex validation, filtering, sorting, and paging etc.
 
 ### How To Try
 

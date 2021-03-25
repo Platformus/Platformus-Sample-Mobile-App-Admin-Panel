@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright © 2021 Dmitry Sikorsky. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.Threading.Tasks;
 using Magicalizer.Data.Repositories.Abstractions;
 using Magicalizer.Filters.Abstractions;
@@ -11,6 +14,7 @@ using Platformus.Core.Filters;
 namespace MyApp.Frontend.Controllers
 {
   [Route("{culture}/v1/phone-validation-tokens")]
+  [ApiController]
   public class PhoneValidationTokensController : Platformus.Core.Frontend.Controllers.ControllerBase
   {
     private IRepository<Guid, Data.Entities.PhoneValidationToken, PhoneValidationTokenFilter> PhoneValidationTokenRepository

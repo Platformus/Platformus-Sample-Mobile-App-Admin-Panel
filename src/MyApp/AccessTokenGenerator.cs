@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright © 2021 Dmitry Sikorsky. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -64,7 +67,7 @@ namespace MyApp
       List<Claim> claims = new List<Claim>();
 
       foreach (RolePermission rolePermission in role.RolePermissions)
-        claims.Add(new Claim(ClaimType.Permission, rolePermission.Permission.Code));
+        claims.Add(new Claim(Platformus.Core.PlatformusClaimTypes.Permission, rolePermission.Permission.Code));
 
       return claims;
     }
