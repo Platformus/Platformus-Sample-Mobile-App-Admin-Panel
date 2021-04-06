@@ -32,7 +32,7 @@ namespace MyApp.Backend.Controllers
       if (string.IsNullOrEmpty(orderBy))
         orderBy = "+" + this.HttpContext.CreateLocalizedOrderBy("Name");
 
-      return this.View(new IndexViewModelFactory().Create(
+      return this.View(await new IndexViewModelFactory().CreateAsync(
         this.HttpContext, filter,
         await this.Repository.GetAllAsync(
           filter, orderBy, skip, take,

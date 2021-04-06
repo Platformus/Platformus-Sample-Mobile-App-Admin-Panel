@@ -24,7 +24,9 @@ namespace MyApp.Backend.ViewModels.Categories
       return new IndexViewModel()
       {
         Grid = new GridViewModelFactory().Create(
-          httpContext, "Name.Value.Contains", orderBy, skip, take, total,
+          httpContext,
+          new FilterViewModelFactory().Create(httpContext, "Name.Value.Contains", localizer["Name"]),
+          orderBy, skip, take, total,
           new[] {
             new GridColumnViewModelFactory().Create(localizer["Name"], httpContext.CreateLocalizedOrderBy("Name")),
             new GridColumnViewModelFactory().Create(localizer["Position"], "Position"),
