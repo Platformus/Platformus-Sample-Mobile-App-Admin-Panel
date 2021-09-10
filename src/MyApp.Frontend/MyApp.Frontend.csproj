@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.5.3" />
-    <PackageReference Include="Platformus.Core.Frontend" Version="2.1.0" />
+    <PackageReference Include="Platformus.Core.Frontend" Version="2.5.0" />
   </ItemGroup>
 
   <ItemGroup>

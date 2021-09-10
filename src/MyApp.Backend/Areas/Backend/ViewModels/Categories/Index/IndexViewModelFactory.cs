@@ -3,38 +3,22 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Localization;
 using MyApp.Backend.ViewModels.Shared;
 using MyApp.Data.Entities;
-using MyApp.Filters;
-using Platformus.Core.Backend.ViewModels;
-using Platformus.Core.Backend.ViewModels.Shared;
-using Platformus.Core.Extensions;
 
 namespace MyApp.Backend.ViewModels.Categories
 {
-  public class IndexViewModelFactory : ViewModelFactoryBase
+  public static class IndexViewModelFactory
   {
-    public IndexViewModel Create(HttpContext httpContext, CategoryFilter filter, IEnumerable<Category> categories, string orderBy, int skip, int take, int total)
+    public static IndexViewModel Create(string sorting, int offset, int limit, int total, IEnumerable<Category> categories)
     {
-      IStringLocalizer<IndexViewModelFactory> localizer = httpContext.RequestServices.GetService<IStringLocalizer<IndexViewModelFactory>>();
-
       return new IndexViewModel()
       {
-        Grid = new GridViewModelFactory().Create(
-          httpContext,
-          new FilterViewModelFactory().Create(httpContext, "Name.Value.Contains", localizer["Name"]),
-          orderBy, skip, take, total,
-          new[] {
-            new GridColumnViewModelFactory().Create(localizer["Name"], httpContext.CreateLocalizedOrderBy("Name")),
-            new GridColumnViewModelFactory().Create(localizer["Position"], "Position"),
-            new GridColumnViewModelFactory().CreateEmpty()
-          },
-          categories.Select(c => new CategoryViewModelFactory().Create(c)),
-          "_Category"
-        )
+        Sorting = sorting,
+        Offset = offset,
+        Limit = limit,
+        Total = total,
+        Categories = categories.Select(CategoryViewModelFactory.Create)
       };
     }
   }

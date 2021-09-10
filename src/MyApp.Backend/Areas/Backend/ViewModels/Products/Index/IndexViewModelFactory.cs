@@ -6,49 +6,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Magicalizer.Data.Repositories.Abstractions;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using MyApp.Backend.ViewModels.Shared;
 using MyApp.Data.Entities;
 using MyApp.Filters;
 using Platformus;
-using Platformus.Core.Backend.ViewModels;
-using Platformus.Core.Backend.ViewModels.Shared;
-using Platformus.Core.Extensions;
 using Platformus.Core.Primitives;
 
 namespace MyApp.Backend.ViewModels.Products
 {
-  public class IndexViewModelFactory : ViewModelFactoryBase
+  public static class IndexViewModelFactory
   {
-    public async Task<IndexViewModel> CreateAsync(HttpContext httpContext, ProductFilter filter, IEnumerable<Product> products, string orderBy, int skip, int take, int total)
+    public static async Task<IndexViewModel> CreateAsync(HttpContext httpContext, string sorting, int offset, int limit, int total, IEnumerable<Product> products)
     {
-      IStringLocalizer<IndexViewModelFactory> localizer = httpContext.RequestServices.GetService<IStringLocalizer<IndexViewModelFactory>>();
-
       return new IndexViewModel()
       {
-        Grid = new GridViewModelFactory().Create(
-          httpContext,
-          new[] {
-            new FilterViewModelFactory().Create(httpContext, "Category.Id", localizer["Category"], await this.GetCategoryOptionsAsync(httpContext)),
-            new FilterViewModelFactory().Create(httpContext, "Name.Value.Contains", localizer["Name"])
-          },
-          orderBy, skip, take, total,
-          new[] {
-            new GridColumnViewModelFactory().Create(localizer["Category"]),
-            new GridColumnViewModelFactory().Create(localizer["Name"], httpContext.CreateLocalizedOrderBy("Name")),
-            new GridColumnViewModelFactory().Create(localizer["Price"], "Price"),
-            new GridColumnViewModelFactory().CreateEmpty()
-          },
-          products.Select(p => new ProductViewModelFactory().Create(p)),
-          "_Product"
-        )
+        CategoryOptions = await GetCategoryOptionsAsync(httpContext),
+        Sorting = sorting,
+        Offset = offset,
+        Limit = limit,
+        Total = total,
+        Products = products.Select(ProductViewModelFactory.Create)
       };
     }
 
-    private async Task<IEnumerable<Option>> GetCategoryOptionsAsync(HttpContext httpContext)
+    private static async Task<IEnumerable<Option>> GetCategoryOptionsAsync(HttpContext httpContext)
     {
-      IStringLocalizer<IndexViewModelFactory> localizer = httpContext.GetStringLocalizer<IndexViewModelFactory>();
+      IStringLocalizer<IndexViewModel> localizer = httpContext.GetStringLocalizer<IndexViewModel>();
       List<Option> options = new List<Option>();
 
       options.Add(new Option(localizer["All categories"], string.Empty));

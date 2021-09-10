@@ -9,37 +9,35 @@ using Microsoft.AspNetCore.Http;
 using MyApp.Data.Entities;
 using MyApp.Filters;
 using Platformus;
-using Platformus.Core.Backend.ViewModels;
-using Platformus.Core.Extensions;
 using Platformus.Core.Primitives;
 
 namespace MyApp.Backend.ViewModels.Products
 {
-  public class CreateOrEditViewModelFactory : ViewModelFactoryBase
+  public static class CreateOrEditViewModelFactory
   {
-    public async Task<CreateOrEditViewModel> CreateAsync(HttpContext httpContext, Product product)
+    public static async Task<CreateOrEditViewModel> CreateAsync(HttpContext httpContext, Product product)
     {
       if (product == null)
         return new CreateOrEditViewModel()
         {
-          CategoryOptions = await this.GetCategoryOptionsAsync(httpContext),
-          NameLocalizations = this.GetLocalizations(httpContext),
-          DescriptionLocalizations = this.GetLocalizations(httpContext)
+          CategoryOptions = await GetCategoryOptionsAsync(httpContext),
+          NameLocalizations = httpContext.GetLocalizations(),
+          DescriptionLocalizations = httpContext.GetLocalizations()
         };
 
       return new CreateOrEditViewModel()
       {
         Id = product.Id,
         CategoryId = product.CategoryId,
-        CategoryOptions = await this.GetCategoryOptionsAsync(httpContext),
+        CategoryOptions = await GetCategoryOptionsAsync(httpContext),
         Code = product.Code,
-        NameLocalizations = this.GetLocalizations(httpContext, product.Name),
-        DescriptionLocalizations = this.GetLocalizations(httpContext, product.Description),
+        NameLocalizations = httpContext.GetLocalizations(product.Name),
+        DescriptionLocalizations = httpContext.GetLocalizations(product.Description),
         Price = product.Price
       };
     }
 
-    private async Task<IEnumerable<Option>> GetCategoryOptionsAsync(HttpContext httpContext)
+    private static async Task<IEnumerable<Option>> GetCategoryOptionsAsync(HttpContext httpContext)
     {
       return (await httpContext.GetStorage().GetRepository<int, Category, CategoryFilter>().GetAllAsync(inclusions: new Inclusion<Category>(c => c.Name.Localizations))).Select(
         c => new Option(c.Name.GetLocalizationValue(), c.Id.ToString())

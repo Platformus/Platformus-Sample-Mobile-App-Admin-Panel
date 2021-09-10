@@ -7,9 +7,26 @@
   this.ViewBag.ActiveMenuItem = "categories";
 }
 @section title {
-  @ViewBag.Title <span class="master-detail__detail-header-counter">@Model.Grid.Pager.Total</span>
+  @ViewBag.Title
 }
-@Html.Partial("_Grid", this.Model.Grid)
-<div class="master-detail__detail-buttons buttons">
-  <a class="buttons__button button button--positive" href="@this.Context.Request.CombineUrl("/backend/categories/create")">@Localizer["Create category"]</a>
+<filter>
+  <text-filter property-path="Name.Value.Contains" label="@Localizer["Name"].Value" />
+</filter>
+<pager offset="@Model.Offset" limit="@Model.Limit" total="@Model.Total" />
+<table sorting="@Model.Sorting">
+  <columns>
+    <column label="@Localizer["Name"].Value" sorting-property-path="@ViewContext.HttpContext.CreateLocalizedSorting("Name")" />
+    <column label="@Localizer["Position"].Value" sorting-property-path="Position" />
+    <column />
+  </columns>
+  <rows>
+    @foreach (var category in this.Model.Categories)
+    {
+      <partial name="_Category" for="@category" />
+    }
+  </rows>
+</table>
+<pager offset="@Model.Offset" limit="@Model.Limit" total="@Model.Total" is-secondary="true" />
+<div class="master-detail__buttons buttons">
+  <positive-button href="/backend/categories/create">@Localizer["Create category"]</positive-button>
 </div>

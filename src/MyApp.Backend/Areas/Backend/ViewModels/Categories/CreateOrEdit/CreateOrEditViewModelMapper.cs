@@ -2,13 +2,12 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using MyApp.Data.Entities;
-using Platformus.Core.Backend.ViewModels;
 
 namespace MyApp.Backend.ViewModels.Categories
 {
-  public class CreateOrEditViewModelMapper : ViewModelMapperBase
+  public static class CreateOrEditViewModelMapper
   {
-    public Category Map(Category category, CreateOrEditViewModel createOrEdit)
+    public static Category Map(Category category, CreateOrEditViewModel createOrEdit)
     {
       category.Position = createOrEdit.Position;
       return category;

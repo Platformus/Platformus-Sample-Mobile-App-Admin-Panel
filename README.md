@@ -1,4 +1,4 @@
-# Platformus 2.1.0 Sample Mobile App Admin Panel
+# Platformus 2.5.0 Sample Mobile App Admin Panel
 
 [![Join the chat at https://gitter.im/Platformus/Platformus](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Platformus/Platformus?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 

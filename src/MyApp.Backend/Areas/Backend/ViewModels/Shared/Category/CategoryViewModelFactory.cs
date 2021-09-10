@@ -3,13 +3,12 @@
 
 using MyApp.Data.Entities;
 using Platformus;
-using Platformus.Core.Backend.ViewModels;
 
 namespace MyApp.Backend.ViewModels.Shared
 {
-  public class CategoryViewModelFactory : ViewModelFactoryBase
+  public static class CategoryViewModelFactory
   {
-    public CategoryViewModel Create(Category category)
+    public static CategoryViewModel Create(Category category)
     {
       return new CategoryViewModel()
       {

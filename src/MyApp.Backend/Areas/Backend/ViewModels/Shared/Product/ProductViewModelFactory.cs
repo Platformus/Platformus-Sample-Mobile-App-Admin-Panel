@@ -3,18 +3,17 @@
 
 using MyApp.Data.Entities;
 using Platformus;
-using Platformus.Core.Backend.ViewModels;
 
 namespace MyApp.Backend.ViewModels.Shared
 {
-  public class ProductViewModelFactory : ViewModelFactoryBase
+  public static class ProductViewModelFactory
   {
-    public ProductViewModel Create(Product product)
+    public static ProductViewModel Create(Product product)
     {
       return new ProductViewModel()
       {
         Id = product.Id,
-        Category = new CategoryViewModelFactory().Create(product.Category),
+        Category = CategoryViewModelFactory.Create(product.Category),
         Name = product.Name.GetLocalizationValue(),
         Price = product.Price
       };

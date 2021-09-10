@@ -41,6 +41,7 @@ namespace MyApp.Data.EntityFramework.Sqlite
           etb.HasKey(e => e.Id);
           etb.Property(e => e.Id).ValueGeneratedOnAdd();
           etb.Property(e => e.Code).IsRequired().HasMaxLength(32);
+          etb.Property(e => e.Price).HasConversion<double>();
           etb.ToTable("Products");
         }
       );

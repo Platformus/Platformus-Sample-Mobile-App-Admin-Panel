@@ -3,24 +3,24 @@
 
 using Microsoft.AspNetCore.Http;
 using MyApp.Data.Entities;
-using Platformus.Core.Backend.ViewModels;
+using Platformus;
 
 namespace MyApp.Backend.ViewModels.Categories
 {
-  public class CreateOrEditViewModelFactory : ViewModelFactoryBase
+  public static class CreateOrEditViewModelFactory
   {
-    public CreateOrEditViewModel Create(HttpContext httpContext, Category category)
+    public static CreateOrEditViewModel Create(HttpContext httpContext, Category category)
     {
       if (category == null)
         return new CreateOrEditViewModel()
         {
-          NameLocalizations = this.GetLocalizations(httpContext)
+          NameLocalizations = httpContext.GetLocalizations()
         };
 
       return new CreateOrEditViewModel()
       {
         Id = category.Id,
-        NameLocalizations = this.GetLocalizations(httpContext, category.Name),
+        NameLocalizations = httpContext.GetLocalizations(category.Name),
         Position = category.Position
       };
     }

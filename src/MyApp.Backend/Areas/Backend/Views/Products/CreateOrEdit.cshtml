@@ -10,13 +10,13 @@
   @ViewBag.Title
 }
 <form class="form" method="post">
-  <drop-down-list-field asp-for="CategoryId" asp-options="@Model.CategoryOptions" />
-  <single-line-text-field asp-for="Code" />
-  <multilingual-single-line-text-field asp-for="Name" asp-localizations="this.Model.NameLocalizations" />
-  <multilingual-multiline-text-field asp-for="Description" asp-localizations="this.Model.DescriptionLocalizations" asp-height="small" />
-  <numeric-field asp-for="Price" />
+  <drop-down-list-field for="CategoryId" options="@Model.CategoryOptions" />
+  <single-line-text-field for="Code" />
+  <multilingual-single-line-text-field for="Name" localizations="this.Model.NameLocalizations" />
+  <multilingual-multiline-text-field for="Description" localizations="this.Model.DescriptionLocalizations" height="Small" />
+  <numeric-field for="Price" />
   <div class="form__buttons buttons">
-    <button class="buttons__button button button--positive" type="submit">@Localizer["Save"]</button>
-    <a class="buttons__button button button--neutral" href="@this.Context.Request.CombineUrl("/backend/products")">@Localizer["Cancel"]</a>
+    <submit-button>@Localizer["Save"]</submit-button>
+    <neutral-button href="@this.Context.Request.CombineUrl("/backend/products")">@Localizer["Cancel"]</neutral-button>
   </div>
 </form>

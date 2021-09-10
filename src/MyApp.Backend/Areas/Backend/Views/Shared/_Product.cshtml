@@ -2,12 +2,12 @@
 @* Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. *@
 @model MyApp.Backend.ViewModels.Shared.ProductViewModel
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
-<tr class="table__row">
-  <td class="table__cell">@Model.Category.Name</td>
-  <td class="table__cell">@Model.Name</td>
-  <td class="table__cell">@Model.Price</td>
-  <td class="table__cell table__buttons buttons">
-    <a class="table__button buttons__button buttons__button--minor button button--positive button--minor" href="@(this.Context.Request.CombineUrl("/backend/products/edit/" + this.Model.Id))">@Localizer["Edit"]</a>
-    <a class="table__button buttons__button buttons__button--minor button button--negative button--minor button--delete" href="#" onclick="return platformus.forms.deleteForm.show('/backend/products/delete/@Model.Id');"></a>
-  </td>
-</tr>
+<row>
+  <cell>@Model.Category.Name</cell>
+  <cell>@Model.Name</cell>
+  <cell>@Model.Price.ToString("0.00")</cell>
+  <buttons-cell>
+    <positive-button is-minor="true" href="/backend/products/edit/@Model.Id">@Localizer["Edit"]</positive-button>
+    <delete-button href="/backend/products/delete/@Model.Id"></delete-button>
+  </buttons-cell>
+</row>
