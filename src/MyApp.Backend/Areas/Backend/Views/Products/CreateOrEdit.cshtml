@@ -3,20 +3,17 @@
 @model MyApp.Backend.ViewModels.Products.CreateOrEditViewModel
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 @{
-  this.ViewBag.Title = (this.Model.Id == null ? this.Localizer["Create Product"].Value : this.Localizer["Edit Product"].Value);
+  this.ViewBag.Title = (this.Model.Id == null ? this.Localizer["Create Product"] : this.Localizer["Edit Product"]);
   this.ViewBag.ActiveMenuItem = "products";
 }
-@section title {
-  @ViewBag.Title
-}
 <form class="form" method="post">
+  <title-bar>
+    <submit-button>@Localizer["Save"]</submit-button>
+    <neutral-button href="/backend/products">@Localizer["Cancel"]</neutral-button>
+  </title-bar>
   <drop-down-list-field for="CategoryId" options="@Model.CategoryOptions" />
   <single-line-text-field for="Code" />
   <multilingual-single-line-text-field for="Name" localizations="this.Model.NameLocalizations" />
   <multilingual-multiline-text-field for="Description" localizations="this.Model.DescriptionLocalizations" height="Small" />
-  <numeric-field for="Price" />
-  <div class="form__buttons buttons">
-    <submit-button>@Localizer["Save"]</submit-button>
-    <neutral-button href="@this.Context.Request.CombineUrl("/backend/products")">@Localizer["Cancel"]</neutral-button>
-  </div>
+  <decimal-field for="Price" />
 </form>

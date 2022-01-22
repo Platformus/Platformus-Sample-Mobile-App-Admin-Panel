@@ -2,22 +2,21 @@
 @* Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. *@
 @model MyApp.Backend.ViewModels.Categories.IndexViewModel
 @inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@using Platformus.Core
 @{
   this.ViewBag.Title = this.Localizer["Categories"];
   this.ViewBag.ActiveMenuItem = "categories";
 }
-@section title {
-  @ViewBag.Title
-}
+<title-bar>
+  <neutral-button icon="Icons.Create" href="/backend/categories/create">@Localizer["Create category"]</neutral-button>
+</title-bar>
 <filter>
   <text-filter property-path="Name.Value.Contains" label="@Localizer["Name"].Value" />
 </filter>
-<pager offset="@Model.Offset" limit="@Model.Limit" total="@Model.Total" />
 <table sorting="@Model.Sorting">
   <columns>
     <column label="@Localizer["Name"].Value" sorting-property-path="@ViewContext.HttpContext.CreateLocalizedSorting("Name")" />
     <column label="@Localizer["Position"].Value" sorting-property-path="Position" />
-    <column />
   </columns>
   <rows>
     @foreach (var category in this.Model.Categories)
@@ -26,7 +25,4 @@
     }
   </rows>
 </table>
-<pager offset="@Model.Offset" limit="@Model.Limit" total="@Model.Total" is-secondary="true" />
-<div class="master-detail__buttons buttons">
-  <positive-button href="/backend/categories/create">@Localizer["Create category"]</positive-button>
-</div>
+<pager offset="@Model.Offset" limit="@Model.Limit" total="@Model.Total" />

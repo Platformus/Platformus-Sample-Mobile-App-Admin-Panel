@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Authors>Dmitry Sikorsky</Authors>
     <Copyright>Copyright © 2021 Dmitry Sikorsky</Copyright>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Platformus.WebApplication" Version="2.5.0" />
+    <PackageReference Include="Platformus.WebApplication" Version="3.0.0-beta1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.1" />
   </ItemGroup>
 

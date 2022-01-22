@@ -60,13 +60,12 @@ namespace MyApp.Backend.Controllers
           createOrEdit
         );
 
-        await this.CreateOrEditEntityLocalizationsAsync(category);
-
         if (createOrEdit.Id == null)
           this.Repository.Create(category);
 
         else this.Repository.Edit(category);
 
+        await this.MergeEntityLocalizationsAsync(category);
         await this.Storage.SaveAsync();
         return this.Redirect(this.Request.CombineUrl("/backend/categories"));
       }

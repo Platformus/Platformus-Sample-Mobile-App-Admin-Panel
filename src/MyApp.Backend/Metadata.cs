@@ -22,8 +22,8 @@ namespace MyApp.Backend.Metadata
           1500,
           new MenuItem[]
           {
-            new MenuItem("/backend/categories", localizer["Categories"], 1000, new string[] { Permissions.ManageProducts }),
-            new MenuItem("/backend/products", localizer["Products"], 2000, new string[] { Permissions.ManageProducts })
+            new MenuItem(null, "/backend/categories", localizer["Categories"], 1000, new string[] { Permissions.ManageProducts }),
+            new MenuItem(null, "/backend/products", localizer["Products"], 2000, new string[] { Permissions.ManageProducts })
           }
         )
       };
