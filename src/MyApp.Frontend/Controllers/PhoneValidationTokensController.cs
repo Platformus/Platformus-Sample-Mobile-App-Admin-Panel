@@ -13,7 +13,7 @@ using Platformus.Core.Filters;
 
 namespace MyApp.Frontend.Controllers
 {
-  [Route("{culture}/v1/phone-validation-tokens")]
+  [Route("v1/phone-validation-tokens")]
   [ApiController]
   public class PhoneValidationTokensController : Platformus.Core.Frontend.Controllers.ControllerBase
   {

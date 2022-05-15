@@ -15,7 +15,7 @@ using Platformus.Core.Services.Abstractions;
 
 namespace MyApp.Frontend.Controllers
 {
-  [Route("{culture}/v1/access-tokens")]
+  [Route("v1/access-tokens")]
   [ApiController]
   public class AccessTokensController : Platformus.Core.Frontend.Controllers.ControllerBase
   {

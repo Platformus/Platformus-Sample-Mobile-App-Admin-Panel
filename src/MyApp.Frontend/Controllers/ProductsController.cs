@@ -11,7 +11,7 @@ using MyApp.Frontend.Dto;
 
 namespace MyApp.Frontend.Controllers
 {
-  [Route("{culture}/v1/products")]
+  [Route("v1/products")]
   public class ProductsController : ControllerBase
   {
     private IRepository<int, Data.Entities.Product, ProductFilter> Repository

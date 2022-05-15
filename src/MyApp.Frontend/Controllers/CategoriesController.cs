@@ -11,7 +11,7 @@ using MyApp.Frontend.Dto;
 
 namespace MyApp.Frontend.Controllers
 {
-  [Route("{culture}/v1/categories")]
+  [Route("v1/categories")]
   public class CategoriesController : ControllerBase
   {
     private IRepository<int, Data.Entities.Category, CategoryFilter> Repository
