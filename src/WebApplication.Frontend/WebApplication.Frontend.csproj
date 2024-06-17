@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Dmitry Sikorsky</Authors>
+    <Copyright>Copyright © 2021 Dmitry Sikorsky</Copyright>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.6" />
+    <PackageReference Include="Magicalizer.Domain.Services.Defaults" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="7.0.0" />
+    <PackageReference Include="Platformus.Core.Frontend" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication.Data.Entities\WebApplication.Data.Entities.csproj" />
+    <ProjectReference Include="..\WebApplication.Domain.Models\WebApplication.Domain.Models.csproj" />
+    <ProjectReference Include="..\WebApplication.Shared\WebApplication.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

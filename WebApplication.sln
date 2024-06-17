@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication", "src\WebApplication\WebApplication.csproj", "{B511B595-A980-4D5C-BC2A-BCCB4065B433}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Data.Entities", "src\MyApp.Data.Entities\MyApp.Data.Entities.csproj", "{D12F9BEA-E303-4320-B7CA-4C70E23D776C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Data.Entities", "src\WebApplication.Data.Entities\WebApplication.Data.Entities.csproj", "{D12F9BEA-E303-4320-B7CA-4C70E23D776C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Data.EntityFramework.Sqlite", "src\MyApp.Data.EntityFramework.Sqlite\MyApp.Data.EntityFramework.Sqlite.csproj", "{222232EF-E002-4A61-AD3C-CCD7B69D418E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Data.EntityFramework.Sqlite", "src\WebApplication.Data.EntityFramework.Sqlite\WebApplication.Data.EntityFramework.Sqlite.csproj", "{222232EF-E002-4A61-AD3C-CCD7B69D418E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Backend", "src\MyApp.Backend\MyApp.Backend.csproj", "{6512AB6A-0113-4C97-BB33-2FE2B16DCB1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Backend", "src\WebApplication.Backend\WebApplication.Backend.csproj", "{6512AB6A-0113-4C97-BB33-2FE2B16DCB1C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyApp.Frontend", "src\MyApp.Frontend\MyApp.Frontend.csproj", "{D2B4B6AA-B28F-48B7-9A60-D3DDDD23FB82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Frontend", "src\WebApplication.Frontend\WebApplication.Frontend.csproj", "{D2B4B6AA-B28F-48B7-9A60-D3DDDD23FB82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyApp", "src\MyApp\MyApp.csproj", "{74DB2495-D2C9-4D5A-9A3A-9DFE7C5154B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Shared", "src\WebApplication.Shared\WebApplication.Shared.csproj", "{74DB2495-D2C9-4D5A-9A3A-9DFE7C5154B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication.Domain.Models", "src\WebApplication.Domain.Models\WebApplication.Domain.Models.csproj", "{DBD70115-CC65-4F01-9023-4E3DCC826E14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{74DB2495-D2C9-4D5A-9A3A-9DFE7C5154B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74DB2495-D2C9-4D5A-9A3A-9DFE7C5154B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74DB2495-D2C9-4D5A-9A3A-9DFE7C5154B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD70115-CC65-4F01-9023-4E3DCC826E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD70115-CC65-4F01-9023-4E3DCC826E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD70115-CC65-4F01-9023-4E3DCC826E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD70115-CC65-4F01-9023-4E3DCC826E14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

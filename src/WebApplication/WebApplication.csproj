@@ -3,18 +3,18 @@
   <PropertyGroup>
     <Authors>Dmitry Sikorsky</Authors>
     <Copyright>Copyright © 2021 Dmitry Sikorsky</Copyright>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Platformus.WebApplication" Version="4.0.0" />
+    <PackageReference Include="Platformus.WebApplication" Version="5.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyApp.Backend\MyApp.Backend.csproj" />
-    <ProjectReference Include="..\MyApp.Data.EntityFramework.Sqlite\MyApp.Data.EntityFramework.Sqlite.csproj" />
-    <ProjectReference Include="..\MyApp.Frontend\MyApp.Frontend.csproj" />
+    <ProjectReference Include="..\WebApplication.Backend\WebApplication.Backend.csproj" />
+    <ProjectReference Include="..\WebApplication.Data.EntityFramework.Sqlite\WebApplication.Data.EntityFramework.Sqlite.csproj" />
+    <ProjectReference Include="..\WebApplication.Frontend\WebApplication.Frontend.csproj" />
   </ItemGroup>
 
 </Project>

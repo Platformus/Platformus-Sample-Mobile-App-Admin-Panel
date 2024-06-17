@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Dmitry Sikorsky</Authors>
+    <Copyright>Copyright © 2021 Dmitry Sikorsky</Copyright>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Magicalizer.Domain.Models.Abstractions" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication.Data.Entities\WebApplication.Data.Entities.csproj" />
+    <ProjectReference Include="..\WebApplication.Shared\WebApplication.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

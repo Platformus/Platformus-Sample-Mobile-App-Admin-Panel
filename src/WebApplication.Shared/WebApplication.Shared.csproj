@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Authors>Dmitry Sikorsky</Authors>
+    <Copyright>Copyright © 2021 Dmitry Sikorsky</Copyright>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Platformus.Core" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>
